@@ -5,6 +5,8 @@ import ShoppingCart from '../components/ShoppingCart.vue';
 </script>
 
 <template>
-    <ProductList></ProductList>
-    <ShoppingCart></ShoppingCart>
+    <section class="p-10">
+        <ProductList></ProductList>
+        <ShoppingCart></ShoppingCart>
+    </section>
 </template>
