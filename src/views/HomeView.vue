@@ -6,6 +6,8 @@ import ShoppingCart from '../components/ShoppingCart.vue';
 
 <template>
     <section class="p-10">
+        <h1 class="font-redhat text-2xl font-bold">Texto con Red Hat Text</h1>
+        <p class="font-redhatVar text-lg italic">Texto con Red Hat Variable Italic</p>
         <ProductList></ProductList>
         <ShoppingCart></ShoppingCart>
     </section>

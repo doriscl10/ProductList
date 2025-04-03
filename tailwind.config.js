@@ -5,8 +5,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        redhat: ['Red Hat Text', 'sans-serif'],
+        redhatVar: ['Red Hat Variable', 'sans-serif'],
+    },
   },
   plugins: [],
 }
-
+}
