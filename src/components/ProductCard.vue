@@ -1,4 +1,17 @@
 <script setup lang="ts">
+import {ref} from 'vue'
+
+const quantity = ref(0)
+
+const addToCart = () => {
+  quantity.value = 1
+}
+const increase = () => {
+  quantity.value++
+}
+const decrease = () => {
+  quantity.value--
+}
 defineProps<{
   product: {
     image: {
@@ -12,17 +25,34 @@ defineProps<{
     price: number;
   };
 }>();
+
 </script>
 <template>
  <div class="">
-    <div class="">
-        <img :src="product.image.mobile" :alt="product.name" class="rounded-lg">
-        
+    <div 
+    v-if="quantity===0"
+    class="">
+      <img :src="product.image.mobile" :alt="product.name" class="rounded-lg">
+    </div>
+    <div 
+    v-else
+    class="">
+        <img :src="product.image.mobile" :alt="product.name" class="rounded-lg border-2 border-[#C73B0F]">
     </div>
     <div class="relative">
-      <button class="flex bg-white font-redhat font-bold text-sm  border p-3 border-gray-400 gap-1 rounded-full px-5 absolute -top-6 left-1/2 -translate-x-1/2"><img src="/images/icon-add-to-cart.svg" alt="cart"> Add to Cart</button>
+      <button 
+      v-if="quantity === 0"
+      @click="addToCart"
+      class="flex bg-white font-redhat font-bold text-sm  border p-3 border-gray-400 gap-1 rounded-full px-6 absolute -top-6 left-1/2 -translate-x-1/2 w-40"><img src="/images/icon-add-to-cart.svg" alt="cart"> Add to Cart</button>
+      <div
+      v-else
+      class="flex items-center justify-center text-white gap-9 bg-[#C73B0F] w-40 rounded-full absolute -top-6 left-1/2 -translate-x-1/2 p-3">
+      <button @click="decrease" class="pi pi-minus text-sm p-1 border rounded-full"></button>
+      <span>{{ quantity }}</span>
+      <button @click="increase" class="pi pi-plus text-sm p-1 border rounded-full"></button>
+      </div>
     </div>
-    <div class="border py-7">
+    <div class="py-7">
         <span class="font-redhat text-stone-500">{{ product.category }}</span>
         <p class="font-redhatVar font-semibold">{{ product.name }}</p>
         <p class="font-redhatVar font-semibold text-[#C73B0F]">${{ product.price.toFixed(2) }}</p>

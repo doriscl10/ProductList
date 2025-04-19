@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <h1 class="font-redhatVar font-bold text-4xl py-2">Desserts</h1>
+    <h1 class="font-redhatVar font-bold text-4xl py-2 pb-8">Desserts</h1>
     <ProductCard
     v-for="product in products"
     :key="product.name"

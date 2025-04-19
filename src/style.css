@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
     font-family: 'Red Hat';
     src: url('assets/fonts/static/RedHatText-Regular.ttf');
