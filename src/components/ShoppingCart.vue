@@ -32,13 +32,18 @@ onMounted(() => {
 const totalItems = computed(() =>
   Object.values(cartStore.quantity).reduce((sum, val) => sum + val, 0)
 );
+
+// Filtramos solo los productos que están en el carrito
+const cartProducts = computed(() => {
+  return products.value.filter(p => cartStore.quantity[p.name] > 0)
+})
 </script>
 <template>
 <div class="bg-white rounded-xl">
     <h1 class="font-redhatVar font-bold text-[#C73B0F] text-3xl p-8">Your Cart ({{totalItems}})</h1>
     <div v-if="totalItems >= 1">
         <TheItem
-        v-for="product in products"
+        v-for="product in cartProducts"
         :key="product.name"
         :product="product">
         </TheItem>
