@@ -2,7 +2,7 @@
 import { useCartStore } from '../../store/cart.store';
 
 const cartStore = useCartStore()
-defineProps<{
+const props = defineProps<{
   product: {
     image: {
       thumbnail: string;
@@ -15,6 +15,10 @@ defineProps<{
     price: number;
   };
 }>();
+
+const deleteProduct = () => {
+    return cartStore.quantity[props.product.name] = 0;
+}
 </script>
 
 <template>
@@ -28,7 +32,7 @@ defineProps<{
             </div>
         </div>
         <div class="flex">
-            <button class="">
+            <button class="" @click="deleteProduct">
                 <img src="/images/icon-remove-item.svg" alt="" class="border rounded-full border-stone-500 p-[2px] w-5">
             </button>
         </div>

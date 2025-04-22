@@ -37,6 +37,16 @@ const totalItems = computed(() =>
 const cartProducts = computed(() => {
   return products.value.filter(p => cartStore.quantity[p.name] > 0)
 })
+const totalToPay = computed(() => {
+  return Object.keys(cartStore.quantity).reduce((total, productName) => {
+    const product = products.value.find(p => p.name === productName);
+    if (product) {
+      total += product.price * cartStore.quantity[productName];
+    }
+    return total;
+  }, 0);
+});
+
 </script>
 <template>
 <div class="bg-white rounded-xl">
@@ -49,7 +59,7 @@ const cartProducts = computed(() => {
         </TheItem>
         <div class="flex mx-7 my-7 justify-between">
             <h4 class="font-redhatVar font-medium self-center text-stone-500">Order Total</h4>
-            <h1 class="font-redhatVar font-bold text-2xl text-stone-700">$46.50</h1>
+            <h1 class="font-redhatVar font-bold text-2xl text-stone-700">${{ totalToPay.toFixed(2) }}</h1>
         </div>
         
         <div class="mx-6 flex justify-center gap-1 bg-[rgb(250,246,240)] rounded-md">
