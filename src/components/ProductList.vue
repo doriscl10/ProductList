@@ -2,7 +2,6 @@
 import {onMounted, ref} from "vue";
 import ProductCard from './ProductCard.vue';
 import data from "../data.json";
-import ShoppingCart from "./ShoppingCart.vue";
 
 
 // Definir el tipo del producto
