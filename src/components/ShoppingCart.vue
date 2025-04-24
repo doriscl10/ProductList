@@ -3,10 +3,13 @@ import { computed,onMounted,ref } from 'vue';
 import { useCartStore } from '../store/cart.store';
 import TheItem from './common/TheItem.vue';
 import data from "../data.json";
+import Drawer from 'primevue/drawer';
+
 
 const cartStore = useCartStore();
 
 
+const visibleBottom = ref(false);
 
 
 // Definir el tipo del producto
@@ -67,7 +70,7 @@ const totalToPay = computed(() => {
             <span class="font-redhatVar text-stone-700 font-normal py-3">This is a <strong>carbon-neutral</strong> delivery</span>
         </div>
         <div class="mx-6 flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="visibleBottom = true">
                 Confirm Order
             </button>
         </div>
@@ -78,6 +81,10 @@ const totalToPay = computed(() => {
         </div>
         <span class="flex justify-center pb-10 font-redhatVar font-semibold text-stone-500">Your added items will appear here</span>
     </div>
+    <Drawer v-model:visible="visibleBottom" header="Bottom Drawer" position="bottom" style="height: auto; background-color: azure; color: black;" >
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </Drawer>
 
 </div>
+
 </template>
