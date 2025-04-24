@@ -49,7 +49,7 @@ const totalToPay = computed(() => {
 
 </script>
 <template>
-<div class="bg-white rounded-xl">
+<div class="bg-white rounded-xl w-full tablet:w-1/2 mx-auto md:w-full xl:col-span-3 h-fit">
     <h1 class="font-redhatVar font-bold text-[#C73B0F] text-3xl p-8">Your Cart ({{totalItems}})</h1>
     <div v-if="totalItems >= 1">
         <TheItem

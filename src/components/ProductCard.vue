@@ -20,16 +20,23 @@ defineProps<{
 
 </script>
 <template>
- <div class="">
+ <div class="tablet:w-1/2 tablet:mx-auto md:w-full">
     <div>
-      <img 
-        :src="product.image.mobile" 
-        :alt="product.name" 
-        :class="[
-          'rounded-lg',
-          cartStore.quantity[product.name] ? 'border-2 border-[#C73B0F]' : ''
-        ]"
-      />
+      <picture>
+        <!-- Imagen para escritorio -->
+        <source :srcset="product.image.desktop" media="(min-width: 1024px)">
+        <!-- Imagen para tablet -->
+        <source :srcset="product.image.tablet" media="(min-width: 640px)">
+        <!-- Imagen por defecto: móvil -->
+        <img 
+          :src="product.image.mobile"
+          :alt="product.name"
+          :class="[
+            'rounded-lg',
+            cartStore.quantity[product.name] ? 'border-2 border-[#C73B0F]' : ''
+          ]"
+        />
+      </picture>
     </div>
     <div class="relative">
       <button 

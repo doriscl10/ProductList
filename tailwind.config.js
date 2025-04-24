@@ -10,6 +10,9 @@ export default {
         redhat: ['Red Hat Text', 'sans-serif'],
         redhatVar: ['Red Hat Variable', 'sans-serif'],
     },
+    screens: {
+      'tablet': '640px',
+    }
   },
   plugins: [],
 }

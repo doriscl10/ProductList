@@ -25,10 +25,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <h1 class="font-redhatVar font-bold text-4xl py-2 pb-8">Desserts</h1>
-    <ProductCard
-    v-for="product in products"
-    :key="product.name"
-    :product="product">
-    </ProductCard>
+    <div class="xl:col-span-6">
+      <h1 class="font-redhatVar font-bold text-4xl py-2 pb-8 tablet:w-1/2 mx-auto md:w-full">Desserts</h1>
+      <div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ProductCard
+        v-for="product in products"
+        :key="product.name"
+        :product="product">
+        </ProductCard>
+      </div>
+    </div>
 </template>
