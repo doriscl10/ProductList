@@ -81,12 +81,37 @@ const totalToPay = computed(() => {
       <Drawer v-model:visible="visible" position="bottom" style="height: auto; background-color: white; color: black;">
         <img src="/images/icon-order-confirmed.svg" alt="" class="mb-7">
         <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1">Order</p>
-        <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1">Confirmed</p>
-        <span class="font-redhatVar m-3 text-stone-600">We hope you enjoy your food</span>
-        <div>
-
+        <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1 mb-3">Confirmed</p>
+        <span class="font-redhatVar text-lg m-3 font-medium text-stone-400">We hope you enjoy your food!</span>
+        <div class="bg-[rgb(250,246,240)] rounded-lg py-1 mt-8 max-h-[400px] overflow-y-auto">
+          <div
+          v-for="product in cartProducts"
+          :key="product.name"
+          class="flex mx-4 border-b py-5"
+          >
+            <img :src="product.image.thumbnail" alt="" class="mx-1 rounded-lg w-20">
+            <div class="ml-2">
+                <h4 class="font-redhat font-bold mb-2 text-stone-700">{{product.name}}</h4>
+                <div class="flex gap-2">
+                    <h5 class="font-redhatVar font-medium text-xl mr-2 text-[#C73B0F]">{{cartStore.quantity[product.name]}}x</h5>
+                    <span class="font-redhatVar font-normal text-stone-500 text-xl">@ ${{ product.price.toFixed(2) }}</span>              
+                </div>
+                
+            </div>
+            <div class="ml-auto self-center">
+              <span class="font-redhatVar font-bold text-xl text-stone-500 mr-1">${{ (cartStore.quantity[product.name] * product.price).toFixed(2) }}</span>
+            </div>
+          </div>
+          <div class="flex mx-7 my-7 justify-between">
+            <h4 class="font-redhatVar font-medium self-center text-stone-500 text-lg">Order Total</h4>
+            <h1 class="font-redhatVar font-bold text-3xl text-stone-700">${{ totalToPay.toFixed(2) }}</h1>
+          </div>
         </div>
-      
+        <div class="flex justify-center">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6">
+                Start New Order
+            </button>
+        </div>   
       </Drawer>
     </div>
    
