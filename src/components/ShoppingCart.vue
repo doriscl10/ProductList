@@ -5,12 +5,8 @@ import TheItem from './common/TheItem.vue';
 import data from "../data.json";
 import Drawer from 'primevue/drawer';
 
-
+const visible = ref(false);
 const cartStore = useCartStore();
-
-
-const visibleBottom = ref(false);
-
 
 // Definir el tipo del producto
 interface Product {
@@ -70,7 +66,7 @@ const totalToPay = computed(() => {
             <span class="font-redhatVar text-stone-700 font-normal py-3">This is a <strong>carbon-neutral</strong> delivery</span>
         </div>
         <div class="mx-6 flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="visibleBottom = true">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="visible = true">
                 Confirm Order
             </button>
         </div>
@@ -81,9 +77,19 @@ const totalToPay = computed(() => {
         </div>
         <span class="flex justify-center pb-10 font-redhatVar font-semibold text-stone-500">Your added items will appear here</span>
     </div>
-    <Drawer v-model:visible="visibleBottom" header="Bottom Drawer" position="bottom" style="height: auto; background-color: azure; color: black;" >
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </Drawer>
+    <div>
+      <Drawer v-model:visible="visible" position="bottom" style="height: auto; background-color: white; color: black;">
+        <img src="/images/icon-order-confirmed.svg" alt="" class="mb-7">
+        <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1">Order</p>
+        <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1">Confirmed</p>
+        <span class="font-redhatVar m-3 text-stone-600">We hope you enjoy your food</span>
+        <div>
+
+        </div>
+      
+      </Drawer>
+    </div>
+   
 
 </div>
 
