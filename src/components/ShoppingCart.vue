@@ -8,6 +8,11 @@ import Drawer from 'primevue/drawer';
 const visible = ref(false);
 const cartStore = useCartStore();
 
+function openDrawerIfMobile() {
+  if (window.innerWidth <= 768) {
+    visible.value = true
+  }
+}
 // Definir el tipo del producto
 interface Product {
   image: {
@@ -66,7 +71,7 @@ const totalToPay = computed(() => {
             <span class="font-redhatVar text-stone-700 font-normal py-3">This is a <strong>carbon-neutral</strong> delivery</span>
         </div>
         <div class="mx-6 flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="visible = true">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="openDrawerIfMobile">
                 Confirm Order
             </button>
         </div>
@@ -77,8 +82,8 @@ const totalToPay = computed(() => {
         </div>
         <span class="flex justify-center pb-10 font-redhatVar font-semibold text-stone-500">Your added items will appear here</span>
     </div>
-    <div>
-      <Drawer v-model:visible="visible" position="bottom" style="height: auto; background-color: white; color: black;">
+    <div >
+      <Drawer v-model:visible="visible" position="bottom" style="height: auto; background-color: white; color: black;" >
         <img src="/images/icon-order-confirmed.svg" alt="" class="mb-7">
         <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1">Order</p>
         <p class="font-redhatVar text-stone-800 font-bold text-5xl p-1 mb-3">Confirmed</p>
