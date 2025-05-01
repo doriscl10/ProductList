@@ -82,7 +82,7 @@ const totalToPay = computed(() => {
             <span class="font-redhatVar text-stone-700 font-normal py-3">This is a <strong>carbon-neutral</strong> delivery</span>
         </div>
         <div class="mx-6 flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="openConfirmation">
+            <button class="bg-[#c73b0f] hover:bg-[#d57646] text-white font-redhatVar font-medium rounded-full py-4 w-full my-6" @click="openConfirmation">
                 Confirm Order
             </button>
         </div>
@@ -124,7 +124,7 @@ const totalToPay = computed(() => {
           </div>
         </div>
         <div class="flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
+            <button class="bg-[#C73B0F] hover:bg-[#d57646] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
                 Start New Order
             </button>
         </div>   
@@ -146,7 +146,7 @@ const totalToPay = computed(() => {
                   <h4 class="font-redhat font-bold mb-2 text-stone-700">{{product.name}}</h4>
                   <div class="flex gap-2">
                       <h5 class="font-redhatVar font-medium text-xl mr-2 text-[#C73B0F]">{{cartStore.quantity[product.name]}}x</h5>
-                      <span class="font-redhatVar font-normal text-stone-500 text-md">@ ${{ product.price.toFixed(2) }}</span>              
+                      <span class="font-redhatVar font-normal text-stone-500 text-lg">@ ${{ product.price.toFixed(2) }}</span>              
                   </div>
                   
               </div>
@@ -160,7 +160,7 @@ const totalToPay = computed(() => {
             </div>
           </div>
           <div class="flex justify-center">
-              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
+              <button class="bg-[#C73B0F] hover:bg-[#d57646] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
                   Start New Order
               </button>
           </div>

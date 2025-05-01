@@ -33,7 +33,7 @@ const deleteProduct = () => {
         </div>
         <div class="flex">
             <button class="" @click="deleteProduct">
-                <img src="/images/icon-remove-item.svg" alt="" class="border rounded-full border-stone-500 p-[2px] w-5">
+                <img src="/images/icon-remove-item.svg" alt="" class="border rounded-full border-stone-500 p-[2px] w-5 hover:opacity-70">
             </button>
         </div>
     </div>
