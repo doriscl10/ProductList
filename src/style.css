@@ -2,36 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: rgb(250, 246, 240);
+body {
+  background-color: rgb(250, 246, 240);
 }
 @font-face {
-    font-family: 'Red Hat';
-    src: url('assets/fonts/static/RedHatText-Regular.ttf');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Red Hat";
+  src: url("assets/fonts/static/RedHatText-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Red Hat';
-    src: url('assets/fonts/static/RedHatText-SemiBold.ttf');
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Red Hat";
+  src: url("assets/fonts/static/RedHatText-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Red Hat';
-    src: url('assets/fonts/static/RedHatText-Bold.ttf');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Red Hat";
+  src: url("assets/fonts/static/RedHatText-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Red Hat Variable';
-    src: url('assets/fonts/RedHatText-VariableFont_wght.ttf');
-    font-weight: 100 900;
-    font-style: normal;
+  font-family: "Red Hat Variable";
+  src: url("assets/fonts/RedHatText-VariableFont_wght.ttf");
+  font-weight: 100 900;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Red Hat Variable';
-    src: url('assets/fonts/RedHatText-Italic-VariableFont_wght.ttf');
-    font-weight: 100 900;
-    font-style: italic;
+  font-family: "Red Hat Variable";
+  src: url("assets/fonts/RedHatText-Italic-VariableFont_wght.ttf");
+  font-weight: 100 900;
+  font-style: italic;
 }
