@@ -125,11 +125,39 @@ const totalToPay = computed(() => {
       </Drawer>
     </div>
     <div class="">
-      <Dialog v-model:visible="visibleDialog" modal header="Header" :style="{ width: '50vw' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+      <Dialog v-model:visible="visibleDialog" modal :style="{ width: '40vw', background: 'white', color: 'black' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+          <img src="/images/icon-order-confirmed.svg" alt="" class="mb-7">
+          <p class="font-redhatVar text-stone-800 font-bold text-3xl p-1">Order Confirmed</p>
+          <span class="font-redhatVar text-md m-3 font-medium text-stone-400">We hope you enjoy your food!</span>
+          <div class="bg-[rgb(250,246,240)] rounded-lg py-1 mt-8 max-h-[400px] overflow-y-auto">
+            <div
+            v-for="product in cartProducts"
+            :key="product.name"
+            class="flex mx-4 border-b py-5"
+            >
+              <img :src="product.image.thumbnail" alt="" class="mx-1 rounded-lg w-15">
+              <div class="ml-2">
+                  <h4 class="font-redhat font-bold mb-2 text-stone-700">{{product.name}}</h4>
+                  <div class="flex gap-2">
+                      <h5 class="font-redhatVar font-medium text-xl mr-2 text-[#C73B0F]">{{cartStore.quantity[product.name]}}x</h5>
+                      <span class="font-redhatVar font-normal text-stone-500 text-md">@ ${{ product.price.toFixed(2) }}</span>              
+                  </div>
+                  
+              </div>
+              <div class="ml-auto self-center">
+                <span class="font-redhatVar font-bold text-xl text-stone-500 mr-1">${{ (cartStore.quantity[product.name] * product.price).toFixed(2) }}</span>
+              </div>
+            </div>
+            <div class="flex mx-7 my-7 justify-between">
+              <h4 class="font-redhatVar font-medium self-center text-stone-500 text-lg">Order Total</h4>
+              <h1 class="font-redhatVar font-bold text-3xl text-stone-700">${{ totalToPay.toFixed(2) }}</h1>
+            </div>
+          </div>
+          <div class="flex justify-center">
+              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6">
+                  Start New Order
+              </button>
+          </div>
         </Dialog>
     </div>
    
