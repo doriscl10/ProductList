@@ -18,6 +18,12 @@ const openConfirmation = () => {
     visibleDialog.value = true
   }
 }
+
+const recargarPagina = () => {
+  visibleDialog.value = false;
+  visibleDrawer.value = false;
+  location.reload();
+}
 // Definir el tipo del producto
 interface Product {
   image: {
@@ -118,7 +124,7 @@ const totalToPay = computed(() => {
           </div>
         </div>
         <div class="flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="visibleDrawer = false">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
                 Start New Order
             </button>
         </div>   
@@ -154,7 +160,7 @@ const totalToPay = computed(() => {
             </div>
           </div>
           <div class="flex justify-center">
-              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="visibleDialog = false">
+              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="recargarPagina">
                   Start New Order
               </button>
           </div>
