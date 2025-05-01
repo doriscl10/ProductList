@@ -6,10 +6,10 @@ import data from "../data.json";
 import Drawer from 'primevue/drawer';
 import Dialog from 'primevue/dialog';
 
+const cartStore = useCartStore();
 
 const visibleDrawer = ref(false);
 const visibleDialog = ref(false);
-const cartStore = useCartStore();
 
 const openConfirmation = () => {
   if (window.innerWidth < 768) {
@@ -118,7 +118,7 @@ const totalToPay = computed(() => {
           </div>
         </div>
         <div class="flex justify-center">
-            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6">
+            <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="visibleDrawer = false">
                 Start New Order
             </button>
         </div>   
@@ -154,7 +154,7 @@ const totalToPay = computed(() => {
             </div>
           </div>
           <div class="flex justify-center">
-              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6">
+              <button class="bg-[#C73B0F] text-white font-redhatVar font-medium rounded-full py-5 w-full my-6" @click="visibleDialog = false">
                   Start New Order
               </button>
           </div>
